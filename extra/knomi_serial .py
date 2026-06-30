@@ -1,4 +1,4 @@
-"""Klipper extra module for ZeroD."""
+"""Klipper extra module for Knomi_Serial."""
 
 import dataclasses
 import enum
@@ -16,7 +16,7 @@ _SEND_PERIOD = 0.1
 
 _GCODES_MAX_LEN = 255
 
-_CMD_PREFIX = b"ZEROD_CMD:"
+_CMD_PREFIX = b"KNOMI_CMD:"
 _CMD_STOP = b"STOP"
 _CMD_RESTART = b"RESTART"
 _CMD_GCODE = b"GCODE:"
@@ -62,7 +62,7 @@ class PrinterState:
   gcodes: bytes = b""
 
 
-class ZeroD:
+class Knomi_Serial:
 
   def __init__(self, config):
     self.printer = config.get_printer()
@@ -318,9 +318,9 @@ class ZeroD:
 
 
 def load_config(config):
-  zerod = ZeroD(config)
-  return zerod
+  knomi_serial = Knomi_Serial(config)
+  return knomi_serial
 
 def load_config_prefix(config):
-  zerod = ZeroD(config)
-  return zerod
+  knomi_serial = Knomi_Serial(config)
+  return knomi_serial
