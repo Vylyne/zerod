@@ -10,33 +10,37 @@
 #include "ui/ui.h"
 #include "user_conf.h"
 
-namespace ui {
-namespace idle_screen {
+namespace ui
+{
+  namespace idle_screen
+  {
 
-void _printer_update_handler(const printer::State &state);
+    void _printer_update_handler(const printer::State &state);
 
-lv_obj_t *init(const printer::State &state) {
-  lv_obj_t *scr = screen_helper::create_screen();
-  control::register_printer_update_cb(scr, _printer_update_handler);
+    lv_obj_t *init(const printer::State &state)
+    {
+      lv_obj_t *scr = screen_helper::create_screen();
+      control::register_printer_update_cb(scr, _printer_update_handler);
 
-  IDLE_PAGE_0::init(scr, state);
-  IDLE_PAGE_1::init(scr, state);
-  IDLE_PAGE_2::init(scr, state);
-  IDLE_PAGE_3::init(scr, state);
-  IDLE_PAGE_4::init(scr, state);
+      IDLE_PAGE_0::init(scr, state);
+      IDLE_PAGE_1::init(scr, state);
+      IDLE_PAGE_2::init(scr, state);
+      IDLE_PAGE_3::init(scr, state);
+      IDLE_PAGE_4::init(scr, state);
 
-  lv_obj_scroll_to_x(scr, IDLE_PAGE_START * 240, LV_ANIM_OFF);
+      lv_obj_scroll_to_x(scr, IDLE_PAGE_START * 240, LV_ANIM_OFF);
 
-  return scr;
-}
+      return scr;
+    }
 
-void _printer_update_handler(const printer::State &state) {
-  IDLE_PAGE_0::printer_update(state);
-  IDLE_PAGE_1::printer_update(state);
-  IDLE_PAGE_2::printer_update(state);
-  IDLE_PAGE_3::printer_update(state);
-  IDLE_PAGE_4::printer_update(state);
-}
+    void _printer_update_handler(const printer::State &state)
+    {
+      IDLE_PAGE_0::printer_update(state);
+      IDLE_PAGE_1::printer_update(state);
+      IDLE_PAGE_2::printer_update(state);
+      IDLE_PAGE_3::printer_update(state);
+      IDLE_PAGE_4::printer_update(state);
+    }
 
-}
+  }
 }

@@ -5,12 +5,14 @@
 
 #include "printer/printer.h"
 
-namespace ui {
-namespace idle_screen {
+namespace ui
+{
+    namespace idle_screen
+    {
 
-lv_obj_t *init(const printer::State &state);
+        lv_obj_t *init(const printer::State &state);
 
-}
+    }
 }
 
 #endif
